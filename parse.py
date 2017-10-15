@@ -18,9 +18,9 @@ for subdir, dirs, files in os.walk(os.getcwd()):
                 else:
                     contributers[name]=1
 
-with open("people.csv", 'wb') as myfile:
-    wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
+with open('people.csv', 'w') as csvfile:
+    wr = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
     for person, count in contributers.items():
         wr.writerow([person, count])
-print len(contributers)
-print fileCount
+print(len(contributers))
+print(fileCount)
